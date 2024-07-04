@@ -1,0 +1,93 @@
+//****************************************
+//************ app 壳的配置文件 ************
+//****************************************
+
+import com.quyunshuo.androidbaseframemvvm.buildsrc.*
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.quyunshuo.androidbaseframemvvm'
+    compileSdk ProjectBuildConfig.compileSdkVersion
+
+    defaultConfig {
+        applicationId ProjectBuildConfig.applicationId
+        minSdk ProjectBuildConfig.minSdkVersion
+        targetSdk ProjectBuildConfig.targetSdkVersion
+        versionCode ProjectBuildConfig.versionCode
+        versionName ProjectBuildConfig.versionName
+
+        testInstrumentationRunner DependencyConfig.AndroidX.AndroidJUnitRunner
+        multiDexKeepProguard file("multidexKeep.pro")
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "VERSION_TYPE", "\"${ProjectBuildConfig.Version.ALPHA}\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        beta {
+            buildConfigField "String", "VERSION_TYPE", "\"${ProjectBuildConfig.Version.BETA}\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField "String", "VERSION_TYPE", "\"${ProjectBuildConfig.Version.RELEASE}\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            if (outputFileName != null && outputFileName.endsWith('.apk')) {
+                outputFileName = "${ProjectBuildConfig.applicationId}" +
+                        "_${ProjectBuildConfig.versionCode}" +
+                        "(${ProjectBuildConfig.versionName})" +
+                        "_${variant.buildType.name}" +
+                        ".apk"
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    if (!ProjectBuildConfig.isAppMode) {
+        implementation project(path: ':module_main')
+        implementation project(path: ':module_home')
+        implementation project(path: ':module_search')
+        implementation project(path: ':module_me')
+    } else {
+        implementation project(path: ':lib_common')
+    }
+    implementation DependencyConfig.JetPack.HiltCore
+
+    kapt DependencyConfig.GitHub.AutoServiceAnnotations
+    kapt DependencyConfig.JetPack.HiltApt
+    kapt DependencyConfig.JetPack.HiltAndroidx
+}
