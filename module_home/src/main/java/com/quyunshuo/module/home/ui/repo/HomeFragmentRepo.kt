@@ -2,7 +2,7 @@ package com.quyunshuo.module.home.ui.repo
 
 import com.quyunshuo.androidbaseframemvvm.base.mvvm.m.BaseRepository
 import com.quyunshuo.androidbaseframemvvm.common.helper.responseCodeExceptionHandler
-import com.quyunshuo.module.home.bean.ArticlePageBean
+import com.quyunshuo.module.home.bean.CommodityPageBean
 import com.quyunshuo.module.home.bean.BannerBean
 import com.quyunshuo.module.home.net.HomeApiService
 import kotlinx.coroutines.Dispatchers
@@ -34,10 +34,10 @@ class HomeFragmentRepo @Inject constructor() : BaseRepository() {
      * @param page Int 分页加载的页码 从0开始
      * @return Flow<ArticlePageBean>
      */
-    suspend fun getArticleData(page: Int) = request<ArticlePageBean> {
+    suspend fun getArticleData(page: Int) = request<CommodityPageBean> {
         // 如果页码为0 需要同步进行获取置顶文章进行合并
         if (page == 0) {
-            val article: ArticlePageBean
+            val article: CommodityPageBean
             withContext(Dispatchers.IO) {
                 // 开启 async 请求置顶文章
                 val topArticleJob = async(Dispatchers.IO) {

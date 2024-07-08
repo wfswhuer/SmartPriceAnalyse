@@ -13,9 +13,6 @@ import com.quyunshuo.androidbaseframemvvm.base.utils.EventBusUtils
 
 /**
  * Fragment基类
- *
- * @author Qu Yunshuo
- * @since 8/27/20
  */
 abstract class BaseFrameFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment(),
     FrameView<VB> {

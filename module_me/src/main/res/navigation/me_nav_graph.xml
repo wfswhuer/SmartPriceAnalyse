@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph">
+
+    <!-- Example of action in nav_graph.xml -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.module_me.ui.fragment.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.module_me.ui.fragment.RegisterFragment"
+        android:label="RegisterFragment" />
+
+</navigation>

@@ -1,8 +1,6 @@
 package com.quyunshuo.androidbaseframemvvm.common.constant
 
 /**
- * @Author: QuYunShuo
- * @Time: 2020/8/28
  * @Class: RoutePath
  * @Remark: 路由地址
  */
@@ -31,12 +29,12 @@ object RouteUrl {
     /**
      * 订阅号模块
      */
-    object Search {
+    object Notice {
 
         /**
          * 订阅号Fragment
          */
-        const val SearchFragment = "/module_search/SearchFragment"
+        const val NoticeFragment = "/module_search/NoticeFragment"
     }
 
     /**
@@ -49,4 +47,6 @@ object RouteUrl {
          */
         const val MeFragment = "/module_me/MeFragment"
     }
+
+
 }

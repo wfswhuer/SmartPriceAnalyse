@@ -1,8 +1,8 @@
 package com.quyunshuo.module.home.net
 
 import com.quyunshuo.androidbaseframemvvm.common.bean.BaseResponse
-import com.quyunshuo.module.home.bean.ArticleBean
-import com.quyunshuo.module.home.bean.ArticlePageBean
+import com.quyunshuo.module.home.bean.CommodityBean
+import com.quyunshuo.module.home.bean.CommodityPageBean
 import com.quyunshuo.module.home.bean.BannerBean
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -28,7 +28,7 @@ interface HomeApiService {
      * @return BaseResponse<MutableList<ArticleBean>> 置顶文章列表
      */
     @GET("article/top/json")
-    suspend fun getTopArticle(): BaseResponse<MutableList<ArticleBean>>
+    suspend fun getTopArticle(): BaseResponse<MutableList<CommodityBean>>
 
     /**
      * 根据页面获取分页的文章数据
@@ -36,5 +36,5 @@ interface HomeApiService {
      * @return BaseResponse<ArticlePageBean>
      */
     @GET("article/list/{page}/json")
-    suspend fun getArticleByPage(@Path("page") page: Int): BaseResponse<ArticlePageBean>
+    suspend fun getArticleByPage(@Path("page") page: Int): BaseResponse<CommodityPageBean>
 }

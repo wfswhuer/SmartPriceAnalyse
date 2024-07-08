@@ -1,25 +1,20 @@
 package com.quyunshuo.module.home.ui.vm
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.quyunshuo.androidbaseframemvvm.base.mvvm.vm.BaseViewModel
 import com.quyunshuo.androidbaseframemvvm.base.utils.toast
-import com.quyunshuo.module.home.bean.ArticleBean
+import com.quyunshuo.module.home.bean.CommodityBean
 import com.quyunshuo.module.home.bean.BannerBean
 import com.quyunshuo.module.home.ui.repo.HomeFragmentRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
  * HomeFragment 的 VM 层
- *
- * @author Qu Yunshuo
- * @since 2021/8/5 11:11 下午
  */
 @HiltViewModel
 class HomeFragmentVM @Inject constructor(private val mRepo: HomeFragmentRepo) : BaseViewModel() {
@@ -37,7 +32,7 @@ class HomeFragmentVM @Inject constructor(private val mRepo: HomeFragmentRepo) : 
     /**
      * 文章列表数据源
      */
-    val articleList = mutableListOf<ArticleBean>()
+    val articleList = mutableListOf<CommodityBean>()
 
     /**
      * 文章列表数据加载 first:是否是加载更多、second:加载更多是否成功

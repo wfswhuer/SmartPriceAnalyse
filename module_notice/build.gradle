@@ -1,0 +1,23 @@
+import com.quyunshuo.androidbaseframemvvm.buildsrc.ProjectBuildConfig
+
+plugins {
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.hilt)
+    id "kotlin-kapt"
+}
+if (ProjectBuildConfig.isAppMode) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+apply from: '../base_module.gradle'
+
+android {
+    buildFeatures {
+        viewBinding = true
+    }
+    resourcePrefix "notice_"
+    namespace 'com.example.module_notice'
+}
+

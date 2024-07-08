@@ -19,7 +19,7 @@ class MainViewModel @Inject constructor(private val mRepository: MainRepository)
             .build(RouteUrl.Home.HomeFragment)
             .navigation() as Fragment,
         ARouter.getInstance()
-            .build(RouteUrl.Search.SearchFragment)
+            .build(RouteUrl.Notice.NoticeFragment)
             .navigation() as Fragment,
         ARouter.getInstance()
             .build(RouteUrl.Me.MeFragment)

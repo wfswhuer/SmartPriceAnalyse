@@ -7,9 +7,6 @@ import com.quyunshuo.androidbaseframemvvm.base.app.ApplicationLifecycle
 
 /**
  * Home组件的伪Application
- *
- * @author Qu Yunshuo
- * @since 2021/8/5 11:02 下午
  */
 @AutoService(ApplicationLifecycle::class)
 class HomeApplication : ApplicationLifecycle {

@@ -1,18 +1,12 @@
 package com.quyunshuo.androidbaseframemvvm.buildsrc
 
-/**
- * 项目依赖版本统一管理
- *
- * @author Qu Yunshuo
- * @since 4/24/21 4:00 PM
+/*
+    项目依赖统一管理
  */
 object DependencyConfig {
 
-    /**
-     * 依赖版本号
-     *
-     * @author Qu Yunshuo
-     * @since 4/24/21 4:01 PM
+    /*
+    依赖版本号
      */
     object Version {
 
@@ -25,6 +19,7 @@ object DependencyConfig {
         const val ActivityKtx = "1.5.1"
         const val FragmentKtx = "1.5.2"
         const val MultiDex = "2.0.1"
+        const val NavVersion = "2.3.5"
 
         // Android---------------------------------------------------------------
         const val Junit = "4.13"
@@ -57,6 +52,8 @@ object DependencyConfig {
         const val Coil = "1.3.0"                            // Kotlin图片加载框架
         const val Banner = "3.5.12"                           // Banner
         const val Neumorphism = "0.3.0"                     // 立体View库
+        const val SearchView = "1.4.0"                         //SearchView库
+        const val MaterialEditText = "2.1.4"
 
         // 第三方SDK--------------------------------------------------------------
         const val TencentBugly = "3.3.9"                    // 腾讯Bugly 异常上报
@@ -66,9 +63,6 @@ object DependencyConfig {
 
     /**
      * AndroidX相关依赖
-     *
-     * @author Qu Yunshuo
-     * @since 4/24/21 4:01 PM
      */
     object AndroidX {
         const val AndroidJUnitRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -81,13 +75,12 @@ object DependencyConfig {
         const val ActivityKtx = "androidx.activity:activity-ktx:${Version.ActivityKtx}"
         const val FragmentKtx = "androidx.fragment:fragment-ktx:${Version.FragmentKtx}"
         const val MultiDex = "androidx.multidex:multidex:${Version.MultiDex}"
+        const val NavFragment = "androidx.navigation:navigation-fragment-ktx:${Version.NavVersion}"
+        const val NavUi = "androidx.navigation:navigation-ui-ktx:${Version.NavVersion}"
     }
 
     /**
      * Android相关依赖
-     *
-     * @author Qu Yunshuo
-     * @since 4/24/21 4:02 PM
      */
     object Android {
         const val Junit = "junit:junit:${Version.Junit}"
@@ -96,9 +89,6 @@ object DependencyConfig {
 
     /**
      * JetPack相关依赖
-     *
-     * @author Qu Yunshuo
-     * @since 4/24/21 4:02 PM
      */
     object JetPack {
         const val ViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.Lifecycle}"
@@ -115,9 +105,6 @@ object DependencyConfig {
 
     /**
      * Kotlin相关依赖
-     *
-     * @author Qu Yunshuo
-     * @since 4/24/21 4:02 PM
      */
     object Kotlin {
         const val Kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Version.Kotlin}"
@@ -129,9 +116,6 @@ object DependencyConfig {
 
     /**
      * GitHub及其他相关依赖
-     *
-     * @author Qu Yunshuo
-     * @since 4/24/21 4:02 PM
      */
     object GitHub {
         const val OkHttp = "com.squareup.okhttp3:okhttp:${Version.OkHttp}"
@@ -160,13 +144,12 @@ object DependencyConfig {
         const val CoilVideo = "io.coil-kt:coil-video:${Version.Coil}"
         const val Banner = "com.github.zhpanvip:BannerViewPager:${Version.Banner}"
         const val Neumorphism = "com.github.fornewid:neumorphism:${Version.Neumorphism}"
+        const val SearchView = "com.miguelcatalan:materialsearchview:${Version.SearchView}"
+        const val MaterialEditText = "com.rengwuxian.materialedittext:library:${Version.MaterialEditText}"
     }
 
     /**
      * SDK相关依赖
-     *
-     * @author Qu Yunshuo
-     * @since 4/24/21 4:02 PM
      */
     object SDK {
         const val TencentBugly = "com.tencent.bugly:crashreport:${Version.TencentBugly}"

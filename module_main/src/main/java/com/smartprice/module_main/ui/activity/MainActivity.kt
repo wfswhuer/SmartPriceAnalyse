@@ -29,7 +29,7 @@ class MainActivity : BaseActivity<MainActivityMainBinding, MainViewModel>() {
 
     companion object {
         const val INDEX_HOME = 0
-        const val INDEX_SUBSCRIBE_ACCOUNT = 1
+        const val INDEX_NOTICE = 1
         const val INDEX_ME = 2
     }
 
@@ -40,7 +40,7 @@ class MainActivity : BaseActivity<MainActivityMainBinding, MainViewModel>() {
             setOnNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.vNavHome -> vViewPager.currentItem = INDEX_HOME
-                    R.id.vNavSubscribeAccount -> vViewPager.currentItem = INDEX_SUBSCRIBE_ACCOUNT
+                    R.id.vNavSubscribeAccount -> vViewPager.currentItem = INDEX_NOTICE
                     R.id.vNavMe -> vViewPager.currentItem = INDEX_ME
                 }
                 true
@@ -56,8 +56,7 @@ class MainActivity : BaseActivity<MainActivityMainBinding, MainViewModel>() {
                     val menu = vBottomNavigationView.menu
                     when (position) {
                         INDEX_HOME -> menu.getItem(INDEX_HOME).isChecked = true
-                        INDEX_SUBSCRIBE_ACCOUNT ->
-                            menu.getItem(INDEX_SUBSCRIBE_ACCOUNT).isChecked = true
+                        INDEX_NOTICE -> menu.getItem(INDEX_NOTICE).isChecked = true
                         INDEX_ME -> menu.getItem(INDEX_ME).isChecked = true
                     }
                 }

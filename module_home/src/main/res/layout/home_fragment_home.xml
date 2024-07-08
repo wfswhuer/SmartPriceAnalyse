@@ -15,12 +15,12 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             app:layout_constraintDimensionRatio="9:5"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/vSearch">
 
-            <com.zhpan.bannerview.BannerViewPager
-                android:id="@+id/vBanner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                <com.zhpan.bannerview.BannerViewPager
+                    android:id="@+id/vBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
         </soup.neumorphism.NeumorphCardView>
 
@@ -34,5 +34,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vBannerContainer"
             tools:listitem="@layout/home_item_article" />
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/vSearch"
+            style="@style/Widget.Neumorph.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/home_common_background" />
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        </soup.neumorphism.NeumorphCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

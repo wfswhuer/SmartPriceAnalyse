@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 定义主要的主题颜色 -->
+    <color name="home_theme_primary">#6200EE</color>
+    <color name="home_common_background">#FFFFFF</color>
+    <color name="home_search_layover_bg">#F1F1F1</color>
+    <!-- 其他颜色定义，可以根据需求添加 -->
+    <color name="home_colorAccent">#03DAC5</color>
+    <color name="home_colorPrimaryDark">#3700B3</color>
+    <color name="home_colorPrimaryLight">#BB86FC</color>
+</resources>

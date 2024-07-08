@@ -27,6 +27,6 @@ include(
 )
 include(":module_main")
 include(":module_me")
-include(":module_search")
+include(":module_notice")
 include(":module_search")
 include(":module_search")

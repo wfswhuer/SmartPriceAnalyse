@@ -80,9 +80,14 @@ dependencies {
     androidTestImplementation DependencyConfig.AndroidX.TestExtJunit
     androidTestImplementation DependencyConfig.AndroidX.TestEspresso
     implementation DependencyConfig.GitHub.Banner
-    implementation DependencyConfig.JetPack.HiltCore
+    implementation DependencyConfig.GitHub.SearchView
     implementation DependencyConfig.GitHub.Neumorphism
+    implementation DependencyConfig.JetPack.HiltCore
+    implementation DependencyConfig.AndroidX.NavUi
+    implementation DependencyConfig.AndroidX.NavFragment
+    implementation DependencyConfig.GitHub.MaterialEditText
     implementation 'androidx.core:core:1.10.1'
+
 
 
     kapt DependencyConfig.GitHub.ARouteCompiler

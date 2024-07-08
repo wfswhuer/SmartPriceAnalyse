@@ -11,8 +11,6 @@ import javax.inject.Singleton
 /**
  * 全局作用域的Home模块网络接口代理依赖注入模块
  *
- * @author Qu Yunshuo
- * @since 2021/8/5 10:56 下午
  */
 @Module
 @InstallIn(SingletonComponent::class)
