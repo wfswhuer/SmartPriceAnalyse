@@ -1,5 +1,6 @@
 package com.smartprice.module_main.ui.vm
 
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
 import com.quyunshuo.androidbaseframemvvm.base.mvvm.vm.BaseViewModel
@@ -14,15 +15,27 @@ class MainViewModel @Inject constructor(private val mRepository: MainRepository)
     /**
      * 子页面集合
      */
-    val fragments: List<Fragment> = listOf(
+    val fragments: List<Fragment> = listOfNotNull(
         ARouter.getInstance()
             .build(RouteUrl.Home.HomeFragment)
-            .navigation() as Fragment,
+            .navigation().also { result ->
+                if (result == null) {
+                    Log.e("MainViewModel", "HomeFragment navigation returned null")
+                }
+            } as? Fragment,
         ARouter.getInstance()
             .build(RouteUrl.Notice.NoticeFragment)
-            .navigation() as Fragment,
+            .navigation().also { result ->
+                if (result == null) {
+                    Log.e("MainViewModel", "NoticeFragment navigation returned null")
+                }
+            } as? Fragment,
         ARouter.getInstance()
             .build(RouteUrl.Me.MeFragment)
-            .navigation() as Fragment
-    )
+            .navigation().also { result ->
+                if (result == null) {
+                    Log.e("MainViewModel", "MeFragment navigation returned null")
+                }
+            } as? Fragment
+    ).filterNotNull() // 添加filterNotNull以确保列表中没有null元素
 }

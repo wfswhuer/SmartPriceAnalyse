@@ -14,8 +14,8 @@ object DependencyConfig {
         const val AppCompat = "1.3.1"
         const val CoreKtx = "1.7.0"
         const val ConstraintLayout = "2.1.3"                // 约束布局
-        const val TestExtJunit = "1.1.2"
-        const val TestEspresso = "3.3.0"
+        const val TestExtJunit = "1.1.5"
+        const val TestEspresso = "3.5.1"
         const val ActivityKtx = "1.5.1"
         const val FragmentKtx = "1.5.2"
         const val MultiDex = "2.0.1"

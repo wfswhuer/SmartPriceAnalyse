@@ -10,7 +10,6 @@ import com.smartprice.module_main.adapter.ViewPagerAdapter
 import com.smartprice.module_main.databinding.MainActivityMainBinding
 import com.smartprice.module_main.ui.vm.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-
 @AndroidEntryPoint
 @Route(path = RouteUrl.Main.MainActivity)
 class MainActivity : BaseActivity<MainActivityMainBinding, MainViewModel>() {
@@ -61,7 +60,6 @@ class MainActivity : BaseActivity<MainActivityMainBinding, MainViewModel>() {
                     }
                 }
             })
-
         }
     }
 
