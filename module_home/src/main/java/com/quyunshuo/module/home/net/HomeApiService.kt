@@ -2,8 +2,7 @@ package com.quyunshuo.module.home.net
 
 import com.quyunshuo.androidbaseframemvvm.common.bean.BaseResponse
 import com.quyunshuo.module.home.bean.CommodityBean
-import com.quyunshuo.module.home.bean.CommodityPageBean
-import com.quyunshuo.module.home.bean.BannerBean
+import com.quyunshuo.module.home.bean.HomePageBean
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -15,26 +14,9 @@ import retrofit2.http.Path
  */
 interface HomeApiService {
 
-    /**
-     * 获取首页Banner数据
-     *
-     * @return BaseResponse<List<BannerBean>> Banner列表
-     */
-    @GET("banner/json")
-    suspend fun getBanners(): BaseResponse<List<BannerBean>>
+    @GET("home/pageData")
+    suspend fun getHomePageData(): BaseResponse<HomePageBean>
 
-    /**
-     * 获取置顶文章
-     * @return BaseResponse<MutableList<ArticleBean>> 置顶文章列表
-     */
-    @GET("article/top/json")
-    suspend fun getTopArticle(): BaseResponse<MutableList<CommodityBean>>
-
-    /**
-     * 根据页面获取分页的文章数据
-     * @param page Int 获取的文章页码 从 0 开始
-     * @return BaseResponse<ArticlePageBean>
-     */
-    @GET("article/list/{page}/json")
-    suspend fun getArticleByPage(@Path("page") page: Int): BaseResponse<CommodityPageBean>
+    @GET("home/commodityData")
+    suspend fun getCommodityData(): BaseResponse<List<CommodityBean.TagGoodsBean>>
 }

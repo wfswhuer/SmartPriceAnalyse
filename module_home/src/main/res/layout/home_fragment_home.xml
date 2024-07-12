@@ -1,59 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/common_background">
-
-        <soup.neumorphism.NeumorphCardView
-            android:id="@+id/vBannerContainer"
-            style="@style/Widget.Neumorph.CardView"
+    android:orientation="vertical">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintDimensionRatio="9:5"
-            app:layout_constraintTop_toBottomOf="@id/vSearch">
+            android:layout_height="match_parent"
+            android:addStatesFromChildren="true"
 
-                <com.zhpan.bannerview.BannerViewPager
-                    android:id="@+id/vBanner"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
 
-        </soup.neumorphism.NeumorphCardView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="118dp"
+                            android:background="#FFEF2A52"
+                            android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/vArticleRv"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vBannerContainer"
-            tools:listitem="@layout/home_item_article" />
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="38dp">
 
-        <soup.neumorphism.NeumorphCardView
-            android:id="@+id/vSearch"
-            style="@style/Widget.Neumorph.CardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentLeft="true"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="15dp"
+                                            android:text="商品推荐"
+                                            android:textColor="#ffffffff"
+                                            android:textSize="18sp" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/home_common_background" />
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginRight="15dp"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal">
 
-        <com.miguelcatalan.materialsearchview.MaterialSearchView
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
+                                                <ImageView
+                                                    android:id="@+id/saoma_btn"
+                                                    android:layout_width="20dp"
+                                                    android:layout_height="20dp"
+                                                    android:src="@drawable/shouye_ereima" />
 
-        </soup.neumorphism.NeumorphCardView>
+                                                <ImageView
+                                                    android:id="@+id/leiji_btn"
+                                                    android:layout_width="20dp"
+                                                    android:layout_height="20dp"
+                                                    android:layout_marginLeft="20dp"
+                                                    android:src="@drawable/shouye_qianbao" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                                                <ImageView
+                                                    android:id="@+id/message_btn"
+                                                    android:layout_width="20dp"
+                                                    android:layout_height="20dp"
+                                                    android:layout_marginLeft="20dp"
+                                                    android:src="@drawable/shouye_message" />
+                                        </LinearLayout>
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/search_btn"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="15dp"
+                                    android:gravity="center"
+                                    android:background="@drawable/home_search_bg"
+                                    android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:layout_height="wrap_content">
+                                                <ImageView
+                                                    android:layout_width="20dp"
+                                                    android:layout_height="20dp"
+                                                    android:layout_gravity="center"
+                                                    android:src="@drawable/home_search_img" />
+                                                <TextView
+                                                    android:id="@+id/search_editext"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="match_parent"
+                                                    android:background="@null"
+                                                    android:gravity="center_vertical|left"
+                                                    android:hint="搜索喜爱商品"
+                                                    android:layout_gravity="center"
+                                                    android:maxLength="8"
+                                                    android:maxLines="1"
+                                                    android:paddingLeft="6dp"
+                                                    android:textColor="#ffffffff"
+                                                    android:textColorHint="#ffffffff"
+                                                    android:textSize="14sp" />
+                                        </LinearLayout>
+
+                                </LinearLayout>
+                        </LinearLayout>
+
+
+                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#fff2f2f2"
+                            android:orientation="vertical">
+
+                                <com.google.android.material.appbar.AppBarLayout
+                                    android:id="@+id/appBarLayout"
+                                    android:layout_width="match_parent"
+                                    app:layout_behavior="com.quyunshuo.module.home.behavior.CustomBehavior"
+                                    android:layout_height="wrap_content">
+                                        <com.google.android.material.appbar.CollapsingToolbarLayout
+                                            android:id="@+id/collapsing_toolbar"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            app:contentScrim="@android:color/transparent"
+                                            app:expandedTitleGravity="top"
+                                            app:layout_scrollFlags="exitUntilCollapsed|scroll">
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
+
+
+                                                        <cn.iwgang.familiarrecyclerview.FamiliarRecyclerView
+                                                            android:id="@+id/mRecyclerView"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_gravity="center_horizontal"
+                                                            android:layout_marginTop="20dp"
+                                                            android:scrollbars="vertical"
+                                                            app:frv_dividerHorizontal="@color/home_transparent"
+                                                            app:frv_dividerHorizontalHeight="0dp"
+                                                            app:frv_dividerVertical="@color/home_transparent"
+                                                            app:frv_dividerVerticalHeight="26dp"
+                                                            app:frv_itemViewBothSidesMargin="0dp"
+                                                            app:frv_layoutManager="grid"
+                                                            app:frv_layoutManagerOrientation="vertical"
+                                                            app:frv_spanCount="5" />
+                                                </LinearLayout>
+
+                                        </com.google.android.material.appbar.CollapsingToolbarLayout>
+                                        <com.google.android.material.tabs.TabLayout
+                                            android:id="@+id/tabLayout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            app:tabIndicatorHeight="0dp"
+                                            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                                            app:tabMode="scrollable" />
+                                </com.google.android.material.appbar.AppBarLayout>
+
+                                <androidx.viewpager.widget.ViewPager
+                                    android:id="@+id/viewPager"
+                                    android:layout_width="match_parent"
+                                    android:background="#fff2f2f2"
+                                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                                    android:layout_height="match_parent"
+                                    />
+
+                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                </LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

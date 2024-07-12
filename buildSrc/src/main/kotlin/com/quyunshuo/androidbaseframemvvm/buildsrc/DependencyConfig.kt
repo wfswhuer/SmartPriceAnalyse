@@ -20,6 +20,11 @@ object DependencyConfig {
         const val FragmentKtx = "1.5.2"
         const val MultiDex = "2.0.1"
         const val NavVersion = "2.3.5"
+        const val SwipereFreshLayoutVersion = "1.0.0"
+        const val CoordinatorLayoutVersion = "1.1.0"
+        const val RoomRuntime = "2.3.0"
+        const val RoomComplier = "2.3.0"
+        const val Room = "2.3.0"
 
         // Android---------------------------------------------------------------
         const val Junit = "4.13"
@@ -54,6 +59,15 @@ object DependencyConfig {
         const val Neumorphism = "0.3.0"                     // 立体View库
         const val SearchView = "1.4.0"                         //SearchView库
         const val MaterialEditText = "2.1.4"
+        const val Banner2Version = "1.4.10"
+        const val FamiliarRecyclerviewVersion = "1.3.5"
+        const val ButterknifeVersion = "10.2.1"
+        const val ButterknifeCompilerVersion = "10.2.1"
+        const val BaseRecyclerViewAdapterHelperVersion = "3.0.4"
+        const val PicassoVersion = "2.8"
+        const val PicassoTransformations = "2.4.0"
+        const val PulltorefreshVersion = "1.2.7"
+        const val YLCircleImageViewVersion = "v1.0.8"
 
         // 第三方SDK--------------------------------------------------------------
         const val TencentBugly = "3.3.9"                    // 腾讯Bugly 异常上报
@@ -77,6 +91,11 @@ object DependencyConfig {
         const val MultiDex = "androidx.multidex:multidex:${Version.MultiDex}"
         const val NavFragment = "androidx.navigation:navigation-fragment-ktx:${Version.NavVersion}"
         const val NavUi = "androidx.navigation:navigation-ui-ktx:${Version.NavVersion}"
+        const val SwipereFreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Version.SwipereFreshLayoutVersion}"
+        const val CoordinatorLayout = "androidx.coordinatorlayout:coordinatorlayout:${Version.CoordinatorLayoutVersion}"
+        const val RoomRuntime = "androidx.room:room-runtime:${Version.RoomRuntime}"
+        const val RoomComplier = "androidx.room:room-compiler:${Version.RoomComplier}"
+        const val Room = "androidx.room:room-ktx:${Version.Room}"
     }
 
     /**
@@ -146,7 +165,17 @@ object DependencyConfig {
         const val Neumorphism = "com.github.fornewid:neumorphism:${Version.Neumorphism}"
         const val SearchView = "com.miguelcatalan:materialsearchview:${Version.SearchView}"
         const val MaterialEditText = "com.rengwuxian.materialedittext:library:${Version.MaterialEditText}"
+        const val Banner2 = "com.youth.banner:banner:${Version.Banner2Version}"
+        const val FamiliarRecyclerview = "com.github.iwgang:familiarrecyclerview:${Version.FamiliarRecyclerviewVersion}"
+        const val Butterknife = "com.jakewharton:butterknife:${Version.ButterknifeVersion}"
+        const val ButterknifeCompiler = "com.jakewharton:butterknife-compiler:${Version.ButterknifeCompilerVersion}"
+        const val BaseRecyclerViewAdapterHelper = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Version.BaseRecyclerViewAdapterHelperVersion}"
+        const val Picasso = "com.squareup.picasso:picasso:${Version.PicassoVersion}"
+        const val PicassoTransformations = "'jp.wasabeef:picasso-transformations:${Version.PicassoTransformations}"
+        const val Pulltorefresh = "com.jwenfeng.pulltorefresh:library:${Version.PulltorefreshVersion}"
+        const val YLCircleImageView = "com.github.ai2101039:YLCircleImageView:${Version.YLCircleImageViewVersion}"
     }
+
 
     /**
      * SDK相关依赖

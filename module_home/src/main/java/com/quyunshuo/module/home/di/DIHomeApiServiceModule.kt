@@ -1,5 +1,7 @@
 package com.quyunshuo.module.home.di
 
+import com.quyunshuo.module.home.R
+import com.quyunshuo.module.home.bean.HomePageBean
 import com.quyunshuo.module.home.net.HomeApiService
 import dagger.Module
 import dagger.Provides
@@ -27,4 +29,5 @@ class DIHomeApiServiceModule {
     fun provideHomeApiService(retrofit: Retrofit): HomeApiService {
         return retrofit.create(HomeApiService::class.java)
     }
+
 }

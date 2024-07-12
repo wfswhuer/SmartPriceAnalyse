@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/cd_sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbarSize="0dp"
+        android:scrollbars="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp">
+
+
+            <ImageView
+                android:id="@+id/cd_banner"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cd_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:background="#FFFFFF"
+                android:drawableStart="@drawable/shouye_message"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="    A21夏季2020男装多口袋工装裤 男士九分裤束脚休闲裤潮牌男裤子"
+                android:textColor="#212121"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cd_banner" />
+
+            <TextView
+                android:id="@+id/cd_params"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:text="来源店铺"
+                app:layout_constraintStart_toStartOf="@+id/cd_tv"
+                app:layout_constraintTop_toBottomOf="@+id/cd_tv" />
+
+            <TextView
+                android:id="@+id/cd_tv_param"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#FFFFFF"
+                android:text="购买方案"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toStartOf="@+id/cd_params"
+                app:layout_constraintTop_toBottomOf="@+id/cd_params" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:text="宝贝评价"
+                app:layout_constraintStart_toStartOf="@+id/cd_tv_param"
+                app:layout_constraintTop_toBottomOf="@+id/cd_tv_param" />
+
+            <TextView
+                android:id="@+id/tv_comment_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="查看全部     >   "
+                android:textColor="#FF4081"
+                app:layout_constraintEnd_toEndOf="@+id/cd_tv_param"
+                app:layout_constraintTop_toBottomOf="@+id/cd_tv_param" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cd_rcv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/cd_tv_param"
+                app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:text="宝贝推荐"
+                app:layout_constraintStart_toStartOf="@+id/cd_tv_param"
+                app:layout_constraintTop_toBottomOf="@+id/cd_rcv" />
+
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:src="@drawable/good"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="@+id/cd_tv_param"
+                app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="wrap_content"
+                android:layout_height="550dp"
+                android:src="@drawable/good"
+                android:scaleType="fitStart"
+                app:layout_constraintStart_toStartOf="@+id/cd_tv_param"
+                app:layout_constraintTop_toBottomOf="@+id/iv1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/cd_ll"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="top"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/cd_tv_commodity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="优惠"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/cd_tv_comment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="评价"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/cd_tv_details"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="推荐"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#F5F5F5"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/mib_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_search_img"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/home_shop"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/mib_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_search_img"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/home_service"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/mib_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_search_img"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/home_collect"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_purchase"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/good"
+            android:text="立即购买"
+            android:textColor="#FFFFFF"
+            />
+    </LinearLayout>
+
+</FrameLayout>

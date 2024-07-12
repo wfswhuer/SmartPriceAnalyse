@@ -16,6 +16,7 @@ apply from: '../base_module.gradle'
 android {
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
     resourcePrefix "me_"
     namespace 'com.example.module_me'

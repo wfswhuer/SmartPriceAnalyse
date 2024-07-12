@@ -1,0 +1,7 @@
+{
+  "db_url": "jdbc:mysql://rm-bp1cd8ix801gfa008eo.mysql.rds.aliyuncs.com:3306/commodity_data_info",
+  "db_user": "sanmu",
+  "db_password": "Whuer1893"
+}
+
+

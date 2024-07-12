@@ -21,3 +21,8 @@ android {
     namespace 'com.example.module_notice'
 }
 
+dependencies {
+    implementation libs.androidx.legacy.support.v4
+    implementation libs.androidx.recyclerview
+}
+

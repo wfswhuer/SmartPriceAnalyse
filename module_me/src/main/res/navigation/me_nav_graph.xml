@@ -1,21 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@layout/me_activity_me">
 
-    <!-- Example of action in nav_graph.xml -->
+    <!-- Definition of meFragment -->
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="com.example.module_me.ui.fragment.MeFragment"
+        android:label="MeFragment">
+        <action
+            android:id="@+id/action_meFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_meFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/me_action_mefragment_to_settingfragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/me_action_mefragment_to_stepfragment"
+            app:destination="@id/stepFragment" />
+        <action
+            android:id="@+id/me_action_mefragment_to_starfragment"
+            app:destination="@id/starFragment" />
+    </fragment>
+
+    <!-- Definition of loginFragment -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.module_me.ui.fragment.LoginFragment"
         android:label="LoginFragment">
-        <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+        <!-- Remove action to registerFragment from loginFragment if not needed -->
     </fragment>
 
+    <!-- Definition of registerFragment -->
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.module_me.ui.fragment.RegisterFragment"
         android:label="RegisterFragment" />
+    <fragment
+        android:id="@+id/starFragment"
+        android:name="com.example.module_me.ui.fragment.StarFragment"
+        android:label="starFragment" />
+    <fragment
+        android:id="@+id/stepFragment"
+        android:name="com.example.module_me.ui.fragment.StepFragment"
+        android:label="stepFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.module_me.ui.fragment.SettingFragment"
+        android:label="settingFragment" />
 
 </navigation>

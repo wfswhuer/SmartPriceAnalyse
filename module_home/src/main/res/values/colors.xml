@@ -7,5 +7,8 @@
     <!-- 其他颜色定义，可以根据需求添加 -->
     <color name="home_colorAccent">#03DAC5</color>
     <color name="home_colorPrimaryDark">#3700B3</color>
-    <color name="home_colorPrimaryLight">#BB86FC</color>
+    <color name="home_colorPrimary">#6200EE</color>
+    <color name="home_transparent">#00000000</color>
+    <color name="home_colorBlack">#000000</color>
+    <color name="home_white">#Ffffff</color>
 </resources>

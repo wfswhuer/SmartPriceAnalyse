@@ -47,17 +47,14 @@ android {
     buildTypes {
         // 对应 ALPHA 版本
         debug {
-            buildConfigField "String", "VERSION_TYPE", "\"${ProjectBuildConfig.Version.ALPHA}\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         beta {
-            buildConfigField "String", "VERSION_TYPE", "\"${ProjectBuildConfig.Version.BETA}\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
-            buildConfigField "String", "VERSION_TYPE", "\"${ProjectBuildConfig.Version.RELEASE}\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -87,6 +84,17 @@ dependencies {
     implementation DependencyConfig.AndroidX.NavFragment
     implementation DependencyConfig.GitHub.MaterialEditText
     implementation 'androidx.core:core:1.10.1'
+    implementation DependencyConfig.GitHub.Banner2
+    implementation DependencyConfig.GitHub.FamiliarRecyclerview
+    implementation DependencyConfig.GitHub.Butterknife
+    implementation DependencyConfig.GitHub.BaseRecyclerViewAdapterHelper
+    implementation DependencyConfig.GitHub.Picasso
+    implementation 'jp.wasabeef:picasso-transformations:2.4.0'
+    implementation DependencyConfig.GitHub.YLCircleImageView
+    implementation DependencyConfig.GitHub.Pulltorefresh
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.49'
+    implementation DependencyConfig.AndroidX.RoomRuntime
+    implementation DependencyConfig.AndroidX.Room
 
 
 
@@ -95,4 +103,6 @@ dependencies {
     kapt DependencyConfig.GitHub.AutoServiceAnnotations
     kapt DependencyConfig.JetPack.HiltApt
     kapt DependencyConfig.JetPack.LifecycleCompilerAPT
+    kapt DependencyConfig.GitHub.ButterknifeCompiler
+    kapt DependencyConfig.AndroidX.RoomComplier
 }

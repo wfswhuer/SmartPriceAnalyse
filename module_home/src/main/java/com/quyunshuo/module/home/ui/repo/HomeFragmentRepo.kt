@@ -1,72 +1,62 @@
 package com.quyunshuo.module.home.ui.repo
 
+import android.content.Context
 import com.quyunshuo.androidbaseframemvvm.base.mvvm.m.BaseRepository
-import com.quyunshuo.androidbaseframemvvm.common.helper.responseCodeExceptionHandler
-import com.quyunshuo.module.home.bean.CommodityPageBean
-import com.quyunshuo.module.home.bean.BannerBean
-import com.quyunshuo.module.home.net.HomeApiService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.withContext
+import com.quyunshuo.module.home.bean.CommodityBean
+import com.quyunshuo.module.home.bean.HomePageBean
+import com.quyunshuo.androidbaseframemvvm.common.data.MySQLDatabaseHelper
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-/**
- * HomeFragment的数据仓库层
- */
-class HomeFragmentRepo @Inject constructor() : BaseRepository() {
+class HomeFragmentRepo @Inject constructor(
+    private val context: Context // 传入上下文以获取数据库连接
+) : BaseRepository() {
 
-    @Inject
-    lateinit var mApi: HomeApiService
+    private val dbHelper = MySQLDatabaseHelper(context)
 
     /**
-     * 获取首页Banner数据
-     * @return Flow<List<BannerBean>> Banner数据
+     * 获取首页数据
      */
-    suspend fun getBanners() = request<List<BannerBean>> {
-        mApi.getBanners().run {
-            responseCodeExceptionHandler(code, msg)
-            emit(data)
+    fun getHomePageData(): Flow<HomePageBean> = flow {
+        val query = "SELECT * FROM home_page_data"
+        val resultSet = dbHelper.queryDatabase(query)
+        val tagOptionsList = mutableListOf<HomePageBean.TagOptionsBean>()
+        resultSet?.let {
+            while (it.next()) {
+                val tagOption = HomePageBean.TagOptionsBean(
+                    platformId = it.getInt("platformId"),
+                    name = it.getString("name")
+                )
+                tagOptionsList.add(tagOption)
+            }
         }
+        emit(HomePageBean(tag_options = tagOptionsList))
     }
 
     /**
-     * 获取文章数据
-     * @param page Int 分页加载的页码 从0开始
-     * @return Flow<ArticlePageBean>
+     * 获取商品数据
      */
-    suspend fun getArticleData(page: Int) = request<CommodityPageBean> {
-        // 如果页码为0 需要同步进行获取置顶文章进行合并
-        if (page == 0) {
-            val article: CommodityPageBean
-            withContext(Dispatchers.IO) {
-                // 开启 async 请求置顶文章
-                val topArticleJob = async(Dispatchers.IO) {
-                    mApi.getTopArticle().run {
-                        responseCodeExceptionHandler(code, msg)
-                        data
-                    }
-                }
-                // 开启 async 请求文章
-                val articleJob = async(Dispatchers.IO) {
-                    mApi.getArticleByPage(page).run {
-                        responseCodeExceptionHandler(code, msg)
-                        data
-                    }
-                }
-                // 合并两个请求的结果
-                val topArticleList = topArticleJob.await()
-                topArticleList.forEach { it.top = true }
-                article = articleJob.await()
-                topArticleList.addAll(article.articleList)
-                article.articleList.clear()
-                article.articleList.addAll(topArticleList)
-            }
-            emit(article)
-        } else {
-            mApi.getArticleByPage(page).run {
-                responseCodeExceptionHandler(code, msg)
-                emit(data)
+    fun getCommodityData(): Flow<List<CommodityBean.TagGoodsBean>> = flow {
+        val query = "SELECT * FROM commodity_data"
+        val resultSet = dbHelper.queryDatabase(query)
+        val commodityList = mutableListOf<CommodityBean.TagGoodsBean>()
+        resultSet?.let {
+            while (it.next()) {
+                val commodity = CommodityBean.TagGoodsBean(
+                    productId = it.getInt("productId"),
+                    platformId = it.getInt("platformId"),
+                    name = it.getString("name"),
+                    price = it.getDouble("price"),
+                    categoryId = it.getInt("categoryId"),
+                    productSrc = it.getString("productSrc"),
+                    productContent = it.getString("productContent"),
+                    storeName = it.getString("storeName"),
+                    imageSrc = it.getString("imageSrc")
+                )
+                commodityList.add(commodity)
             }
         }
+        emit(commodityList)
     }
 }

@@ -1,8 +1,6 @@
 package com.example.module_me.ui.fragment
 
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
@@ -17,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 @Route(path = "/module_me/MeFragment")
-class MeFragment() : BaseFragment<MeActivityMeBinding, MeFragmentVM>() {
+class MeFragment : BaseFragment<MeActivityMeBinding, MeFragmentVM>() {
 
     override val mViewModel: MeFragmentVM by viewModels()
 
@@ -68,21 +66,23 @@ class MeFragment() : BaseFragment<MeActivityMeBinding, MeFragmentVM>() {
             initialLayout.visibility = View.GONE
             nestedFragmentContainer.visibility = View.VISIBLE
         }
-
     }
 
     override fun initObserve() {
-        // 如果需要观察 LiveData 或 ViewModel 的数据变化，可以在这里添加逻辑
+        // 观察 ViewModel 的用户数据变化
+        mViewModel.users.observe(viewLifecycleOwner) { users ->
+            binding.userName.text = users.joinToString { it.username }
+        }
     }
 
     override fun initRequestData() {
-        // 如果需要初始化请求数据，可以在这里添加逻辑
+        // 初始化请求数据，从 ViewModel 获取用户数据
+        mViewModel.fetchUsers()
     }
 
     override fun createVB(): MeActivityMeBinding {
         return MeActivityMeBinding.inflate(layoutInflater)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -13,7 +13,7 @@ import javax.inject.Singleton
  */
 @Module
 @InstallIn(SingletonComponent::class)
-class DIHomeApiServiceModule {
+class DIMeApiServiceModule {
 
     /**
      * Me模块的[MeApiService]依赖提供方法
